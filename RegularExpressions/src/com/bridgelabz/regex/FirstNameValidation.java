@@ -9,6 +9,7 @@ public class FirstNameValidation {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter first name:");
 		String firstName = scan.next();
+		scan.close();
 
 		boolean matchFound = Pattern.matches("[A-Z][a-zA-Z]{2,}", firstName);
 

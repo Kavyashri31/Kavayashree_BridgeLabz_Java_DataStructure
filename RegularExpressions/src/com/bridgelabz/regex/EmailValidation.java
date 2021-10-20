@@ -10,7 +10,7 @@ public class EmailValidation {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter email:");
 		String email = scan.next();
-
+		scan.close();
 		Pattern REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 		Matcher matcher = REGEX.matcher(email);
 		boolean isValid = matcher.find();
