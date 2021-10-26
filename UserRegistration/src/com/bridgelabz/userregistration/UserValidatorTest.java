@@ -8,7 +8,8 @@ class UserValidatorTest {
 	@Test
 	void givenFirstNameWhenProperShouldReturnTrue() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validateFirstName("Kavya");
+
+		boolean result = validator.firstNameValidator.validate("Kavya");
 		Assert.assertEquals(true, result);
 
 	}
@@ -16,7 +17,7 @@ class UserValidatorTest {
 	@Test
 	void givenFirstNameWhenShortShouldReturnFalse() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validateFirstName("Ka");
+		boolean result = validator.firstNameValidator.validate("Ka");
 		Assert.assertEquals(false, result);
 
 	}
@@ -24,7 +25,7 @@ class UserValidatorTest {
 	@Test
 	void givenFirstNameWithSpecialCharactersShouldReturnFalse() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validateFirstName("K@vya");
+		boolean result = validator.firstNameValidator.validate("K@vya");
 		Assert.assertEquals(false, result);
 
 	}
@@ -32,7 +33,7 @@ class UserValidatorTest {
 	@Test
 	void givenLastNameWhenProperShouldReturnTrue() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validateLastName("Kavya");
+		boolean result = validator.lastNameValidator.validate("Kavya");
 		Assert.assertEquals(true, result);
 
 	}
@@ -40,7 +41,7 @@ class UserValidatorTest {
 	@Test
 	void givenLastNameWhenShortShouldReturnFalse() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validateLastName("Ka");
+		boolean result = validator.lastNameValidator.validate("Ka");
 		Assert.assertEquals(false, result);
 
 	}
@@ -48,7 +49,7 @@ class UserValidatorTest {
 	@Test
 	void givenLastNameWithSpecialCharactersShouldReturnFalse() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validateLastName("K@vya");
+		boolean result = validator.lastNameValidator.validate("K@vya");
 		Assert.assertEquals(false, result);
 
 	}
@@ -56,7 +57,7 @@ class UserValidatorTest {
 	@Test
 	void givenEmailWhenValidShouldReturnTrue() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validateEmail("kavya@gmail.com");
+		boolean result = validator.emailValidator.validate("kavya@gmail.com");
 		Assert.assertEquals(true, result);
 
 	}
@@ -64,7 +65,7 @@ class UserValidatorTest {
 	@Test
 	void givenEmailWhenInValidShouldReturnFalse() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validateEmail("kavyaAtGmail.com");
+		boolean result = validator.emailValidator.validate("kavyaAtGmail.com");
 		Assert.assertEquals(false, result);
 
 	}
@@ -72,7 +73,7 @@ class UserValidatorTest {
 	@Test
 	void givenMobileWhenValidShouldReturnTrue() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validatMobileNumber("91 7234567899");
+		boolean result = validator.mobileValidator.validate("91 7234567899");
 		Assert.assertEquals(true, result);
 
 	}
@@ -80,7 +81,7 @@ class UserValidatorTest {
 	@Test
 	void givenMobileWhenInValidShouldReturnFalse() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validatMobileNumber("91 123");
+		boolean result = validator.mobileValidator.validate("91 123");
 		Assert.assertEquals(false, result);
 
 	}
@@ -88,7 +89,7 @@ class UserValidatorTest {
 	@Test
 	void givenPasswordWhenValidShouldReturnTrue() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validatePassword("P@sW0rd1");
+		boolean result = validator.passwordValidator.validate("P@sW0rd1");
 		Assert.assertEquals(true, result);
 
 	}
@@ -96,7 +97,7 @@ class UserValidatorTest {
 	@Test
 	void givenPasswordWhenInValidShouldReturnFalse() {
 		UserRegistration validator = new UserRegistration();
-		boolean result = validator.validatePassword("pass");
+		boolean result = validator.passwordValidator.validate("pass");
 		Assert.assertEquals(false, result);
 
 	}

@@ -11,28 +11,29 @@ public class UserRegistration {
 
 	public static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&-+=()]).{8,}$";
 
-	public boolean validateFirstName(String firstName) {
+	FirstNameValidator firstNameValidator = (firstName) -> {
 		Pattern pattern = Pattern.compile(NAME_PATTERN);
 		return pattern.matcher(firstName).matches();
-	}
+	};
 
-	public boolean validateLastName(String lastName) {
+	LastNameValidator lastNameValidator = (lastName) -> {
 		Pattern pattern = Pattern.compile(NAME_PATTERN);
 		return pattern.matcher(lastName).matches();
-	}
+	};
 
-	public boolean validateEmail(String email) {
+	EmailValidator emailValidator = (email) -> {
 		Pattern pattern = Pattern.compile(EMAIL_ADDRESS_PATTERN, Pattern.CASE_INSENSITIVE);
 		return pattern.matcher(email).matches();
-	}
+	};
 
-	public boolean validatMobileNumber(String mobileNumber) {
+	MobileValidator mobileValidator = (mobileNumber) -> {
 		Pattern pattern = Pattern.compile(MOBILE_NUMBER_PATTERN);
 		return pattern.matcher(mobileNumber).find();
-	}
+	};
 
-	public boolean validatePassword(String password) {
+	PasswordValidator passwordValidator = (password) -> {
 		Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
 		return pattern.matcher(password).matches();
-	}
+	};
+
 }
